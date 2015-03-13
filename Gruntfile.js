@@ -4,12 +4,18 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		appcJs: {
 			src: ['Gruntfile.js', 'bin', 'lib/**/*.js']
-		}
-
+		},
+		bump: {
+			options: {
+				files: ['package.json'],
+				commitFiles: ['package.json']
+			}
+		}	
 	});
 
 	// Load grunt plugins for modules
 	grunt.loadNpmTasks('grunt-appc-js');
+	grunt.loadNpmTasks('grunt-bump');
 
 	grunt.registerTask('sample', 'Run sample tio2 project', function () {
 		grunt.util.spawn({
